@@ -20,7 +20,7 @@ on:
         type: string
   
 jobs:
-  build-kernel-sultan-kernelsu-susfs:
+  build-kernel-sultan-kernelsu-next:
     runs-on: ubuntu-latest
     steps:
       - name: Maximize Build Space
@@ -102,7 +102,8 @@ jobs:
           
           echo "Running sed commands..."
           sed -i 's/CONFIG_LOCALVERSION="-Sultan"/CONFIG_LOCALVERSION="-SKSUNext"/' ./arch/arm64/configs/${{ inputs.codename }}_defconfig
-
+          echo "CONFIG_LOCALVERSION_AUTO=n" >> ./arch/arm64/configs/${{ inputs.codename }}_defconfig
+        
       - name: Build the Kernel
         run: |
           echo "Changing to configuration directory: $CONFIG..."
