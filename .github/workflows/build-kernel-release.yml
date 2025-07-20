@@ -64,7 +64,7 @@ jobs:
       # Get the Latest Tag from GitHub
       - name: Generate and Create New Tag
         run: |
-            NEW_TAG="July" #Current sultan kernel version being used
+            NEW_TAG="July-1" #Current sultan kernel version being used + build iteration
             
             # Output the new tag to be used
             echo "New tag: $NEW_TAG"
