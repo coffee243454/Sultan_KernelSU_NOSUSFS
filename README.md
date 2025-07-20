@@ -1,4 +1,6 @@
-# Wild Kernels for Android
+# SULTAN KERNEL WITH KERNELSU-NEXT
+
+## Credit to TheWildJames for the original repo and scripts
 
 ## Your warranty is no longer valid!
 

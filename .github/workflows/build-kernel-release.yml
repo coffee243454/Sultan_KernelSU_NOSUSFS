@@ -54,8 +54,8 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       RELEASE_NAME: "*Sultan Kernels With KernelSU Next"
       RELEASE_NOTES: |
-        All credits to TheWildJames for the original repo + patches
-        Kernels untested
+        Credits to TheWildJames for the original repo + patches
+        Kernels untested, use at your own risk
     steps:
       # Checkout the code
       - name: Checkout code
@@ -64,14 +64,7 @@ jobs:
       # Get the Latest Tag from GitHub
       - name: Generate and Create New Tag
         run: |
-            # Fetch the latest tag from GitHub (this is the latest tag based on the GitHub API)
-            LATEST_TAG=$(gh api repos/$REPO_OWNER/$REPO_NAME/tags --jq '.[0].name')
-            if [ -z "$LATEST_TAG" ]; then
-              LATEST_TAG="v1.5.9-r0"  # Default to v1.5.7-0 if no tag exists
-            fi
-            
-            # Increment the suffix (e.g., v1.5.7-0 becomes v1.5.7-1)
-            NEW_TAG=$(echo "$LATEST_TAG" | awk -F'-r' '{suffix=$2; if (!suffix) suffix=0; suffix++; printf "%s-r%d", $1, suffix}')
+            NEW_TAG="July" #Current sultan kernel version being used
             
             # Output the new tag to be used
             echo "New tag: $NEW_TAG"
