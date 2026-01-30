@@ -70,7 +70,7 @@ jobs:
           git clone https://github.com/TheWildJames/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
           git clone https://github.com/TheWildJames/kernel_patches.git
           #git clone https://github.com/kerneltoast/${{ inputs.repo }}
-          git clone https://github.com/kerneltoast/android_kernel_google_tensynos
+          git clone https://github.com/kerneltoast/android_kernel_google_tensynos --depth=1
 
 
       - name: Add KernelSU
