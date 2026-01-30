@@ -88,8 +88,9 @@ jobs:
           echo "# KernelSU Configuration" >> ./arch/arm64/configs/${{ inputs.codename }}_defconfig
           echo "CONFIG_KSU=y" >> ./arch/arm64/configs/${{ inputs.codename }}_defconfig
           # Apply additional patch
-          cp ../kernel_patches/sultan/syscall_hooks.patch ./
-          patch -p1 -F 3 < syscall_hooks.patch
+          echo "APPLY PATCHES"
+          cp ../kernel_patches/sultan/ksu_hooks.patch ./
+          patch -p1 -F 3 < ksu_hooks.patch
 
 
       - name: Configure Mountify Support
