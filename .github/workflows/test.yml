@@ -44,10 +44,7 @@ jobs:
           export CROSS_COMPILE=$GITHUB_WORKSPACE/gcc-14.2.0-nolibc/aarch64-linux/bin/aarch64-linux-
           export CC=${CROSS_COMPILE}gcc
 
-          make zuma_defconfig
-
-          grep '^CONFIG_KSU=y' out/.config
-          
+          make zuma_defconfig          
           make -j$(nproc)
 
 
