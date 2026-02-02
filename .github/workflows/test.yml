@@ -26,8 +26,9 @@ jobs:
       - name: Add KernelSU
         working-directory: android_kernel_google_tensynos
         run: |
-          curl -LSs https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh | bash -
-
+          echo "Adding KernelSU..."
+          curl -LSs "https://raw.githubusercontent.com/WildKernels/Wild_KSU/wild/kernel/setup.sh" | bash -s wild
+          
       - name: Enable KernelSU in defconfig
         working-directory: android_kernel_google_tensynos
         run: |
