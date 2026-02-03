@@ -76,7 +76,8 @@ jobs:
           echo "Changing to configuration directory: $CONFIG..."
           cd "$CONFIG"
           echo "Adding KernelSU..."
-          curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s main     
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash - main
+          # curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s nongki     
           
       - name: Add KSU Configuration Settings
         run: |
@@ -90,7 +91,15 @@ jobs:
 
           # Removing defconfig check
           sed -i 's/check_defconfig//' ./build.config.gki
-
+          
+      - name: Apply KSU Hooks
+        run: |
+          echo "Changing to configuration directory: $CONFIG..."
+          cd "$CONFIG"
+          # Apply additional patch
+          cp ../kernel_patches/next/next_hooks.patch ./
+          patch -p1 -F 3 < syscall_hooks.patch
+          
       - name: Run sed and perl Commands
         run: |
           echo "Changing to configuration directory: $CONFIG..."
