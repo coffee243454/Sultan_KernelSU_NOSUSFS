@@ -102,8 +102,8 @@ jobs:
           echo "Changing to configuration directory: $CONFIG..."
           cd "$CONFIG"
           # Apply additional patch
-          cp ../ok_patches/sultan/scope-min-hooks-v1.6.patch ./
-          patch -p1 -F 3 < scope-min-hooks-v1.6.patch
+          cp ../ok_patches/sultan/scope-min-hooks-v1.5.patch ./
+          patch -p1 -F 3 < scope-min-hooks-v1.5.patch
           
       - name: Run sed and perl Commands
         run: |
