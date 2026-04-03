@@ -69,8 +69,8 @@ jobs:
           # Clone repositories using the branch names
           git clone https://github.com/TheWildJames/AnyKernel3.git -b "$ANYKERNEL_BRANCH"
           git clone https://github.com/kerneltoast/android_kernel_google_tensynos --depth=1
-          # git clone --depth=1 https://github.com/TheSillyOk/kernel_ls_patches ok_patches
-          git clone --depth=1 https://github.com/TheWildJames/kernel_patches.git
+          git clone --depth=1 https://github.com/TheSillyOk/kernel_ls_patches ok_patches
+         # git clone --depth=1 https://github.com/TheWildJames/kernel_patches.git
 
       - name: Add KernelSU
         run: |
@@ -107,10 +107,10 @@ jobs:
           echo "Changing to configuration directory: $CONFIG..."
           cd "$CONFIG"
           # Apply additional patch
-          #cp ../ok_patches/sultan/scope-min-hooks-v1.9.patch ./
-          #patch -p1 -F 3 < scope-min-hooks-v1.9.patch
-          cp ../kernel_patches/wild/hooks/69_pure_manual_hooks_only.patch ./
-          patch -p1 < 69_pure_manual_hooks_only.patch 
+          cp ../ok_patches/sultan/scope-min-hooks-v1.9.patch ./
+          patch -p1 -F 3 < scope-min-hooks-v1.9.patch
+          #cp ../kernel_patches/wild/hooks/69_pure_manual_hooks_only.patch ./
+          #patch -p1 < 69_pure_manual_hooks_only.patch 
       - name: Run sed and perl Commands
         run: |
           echo "Changing to configuration directory: $CONFIG..."
